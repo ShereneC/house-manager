@@ -14,5 +14,10 @@ class SystemsService {
     }
     return system
   }
+
+  async createSystem(body) {
+    const res = await dbContext.Systems.create(body)
+    return await dbContext.Systems.findById(res._id).populate('creator', 'name picture')
+  }
 }
 export const systemsService = new SystemsService()
