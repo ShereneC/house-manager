@@ -1,8 +1,9 @@
 import { dbContext } from '../db/DbContext'
 
-async function getSystems() {
-  const systems = await dbContext.Systems
-  return systems
+class SystemsService {
+  async getSystems(query = {}) {
+    const systems = await dbContext.Systems.find(query)
+    return systems
+  }
 }
-
 export const systemsService = new SystemsService()

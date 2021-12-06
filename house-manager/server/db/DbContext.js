@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 import { AccountSchema, ProfileSchema } from '../models/Account'
 import { ValueSchema } from '../models/Value'
+import { SystemSchema } from '../models/System'
 
 class DbContext {
   Systems = mongoose.model('System', SystemSchema);
