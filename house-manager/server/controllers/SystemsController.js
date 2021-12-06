@@ -2,12 +2,12 @@ import { Auth0Provider } from '@bcwdev/auth0provider'
 import { systemsService } from '../services/SystemsService'
 import BaseController from '../utils/BaseController'
 
-export class SystemController extends BaseController {
+export class SystemsController extends BaseController {
   constructor() {
-    super('systems')
+    super('api/systems')
     this.router
-      .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getSystems)
+      .use(Auth0Provider.getAuthorizedUserInfo)
   }
 
   async getSystems(req, res, next) {
