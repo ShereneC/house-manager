@@ -8,6 +8,7 @@ export class SystemsController extends BaseController {
     this.router
       .get('', this.getSystems)
       .get('/:id', this.getSystemById)
+      .post('', this.createSystem)
       .use(Auth0Provider.getAuthorizedUserInfo)
   }
 
@@ -24,6 +25,17 @@ export class SystemsController extends BaseController {
   async getSystemById(req, res, next) {
     try {
       const system = await systemsService.getSystemById(req.params.id)
+      console.log(res)
+      res.send(system)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async createSystem(req, res, next) {
+    try {
+      // req.body.creatorId = req.userInfo.id  Need to put this back in, when I have an auth key
+      const system = await systemsService.createSystem(req.body)
       console.log(res)
       res.send(system)
     } catch (error) {
