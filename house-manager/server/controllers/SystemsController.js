@@ -1,4 +1,5 @@
 import { Auth0Provider } from '@bcwdev/auth0provider'
+import { systemsService } from '../services/SystemsService'
 import BaseController from '../utils/BaseController'
 
 export class SystemController extends BaseController {
