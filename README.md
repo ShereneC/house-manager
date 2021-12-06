@@ -5,3 +5,11 @@ I currently have an overly-stuffed file of owner's manuals and notes on applianc
 
 This app is currently being planned out - starting from scratch.  
 It utilizes the CodeWorks "fullstack-vue" template.
+
+Working on requirements for System Schema
+
+Needs service - boolean - default = false
+lastServiced - When boolean is switched from true to false, grab the Date.now and put it here
+createdAt - but I think that comes automatically with the database - just like id.
+Will want creatorId - as house changes hand, you can still know who installed something.
+Want to have a spot for them to upload images?  How do I do that?  We have only done this by using URls, so how do I do the actual files?
