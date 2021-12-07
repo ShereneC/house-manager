@@ -16,7 +16,6 @@ export class SystemsController extends BaseController {
   async getSystems(req, res, next) {
     try {
       const systems = await systemsService.getSystems()
-      console.log(res)
       res.send(systems)
     } catch (error) {
       next(error)
@@ -26,7 +25,6 @@ export class SystemsController extends BaseController {
   async getSystemById(req, res, next) {
     try {
       const system = await systemsService.getSystemById(req.params.id)
-      console.log(res)
       res.send(system)
     } catch (error) {
       next(error)
@@ -37,7 +35,6 @@ export class SystemsController extends BaseController {
     try {
       req.body.creatorId = req.userInfo.id
       const system = await systemsService.createSystem(req.body)
-      console.log(res)
       res.send(system)
     } catch (error) {
       next(error)

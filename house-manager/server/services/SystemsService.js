@@ -22,7 +22,7 @@ class SystemsService {
 
   async editSystem(id, body) {
     const system = await dbContext.Systems.findById(id)
-    if (!system) {
+    if (system) {
       const editedSystem = await dbContext.Systems.findByIdAndUpdate(id, body, { new: true, runValidators: true })
       return editedSystem
     } else {
