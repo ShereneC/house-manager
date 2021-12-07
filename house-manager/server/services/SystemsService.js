@@ -29,5 +29,9 @@ class SystemsService {
       throw new BadRequest('System not found with that id')
     }
   }
+
+  async deleteSystem(id) {
+
+  }
 }
 export const systemsService = new SystemsService()

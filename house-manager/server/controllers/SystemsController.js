@@ -11,6 +11,7 @@ export class SystemsController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createSystem)
       .put('/:id', this.editSystem)
+      .delete('/:id', this.deleteSystem)
   }
 
   async getSystems(req, res, next) {
@@ -46,6 +47,16 @@ export class SystemsController extends BaseController {
       req.body.creatorId = req.userInfo.id
       const system = await systemsService.editSystem(req.params.id, req.body)
       res.send(system)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async deleteSystem(req, res, next) {
+    try {
+      req.body.creatorId = req.userInfo.id
+      const systemToDelete = await systemsService.deleteSystem(req.body)
+      res.send(systemToDelete)
     } catch (error) {
       next(error)
     }
