@@ -7,24 +7,23 @@
   </main>
   <footer>
     <div class="bg-dark text-light text-center p-4">
-      Made with 💖 by CodeWorks
+      Made with 💖 by CodeWorks & Sherene
     </div>
   </footer>
 </template>
 
 <script>
-import { computed } from 'vue'
-import { AppState } from './AppState'
-export default {
-  name: 'App',
-  setup() {
-    return {
-      appState: computed(() => AppState)
+  import { computed } from 'vue'
+  import { AppState } from './AppState'
+  export default {
+    name: 'App',
+    setup() {
+      return {
+        appState: computed(() => AppState)
+      }
     }
   }
-}
 </script>
 <style lang="scss">
-@import "./assets/scss/main.scss";
-
+  @import "./assets/scss/main.scss";
 </style>
