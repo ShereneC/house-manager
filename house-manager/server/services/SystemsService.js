@@ -17,7 +17,7 @@ class SystemsService {
 
   async createSystem(body) {
     const res = await dbContext.Systems.create(body)
-    return await dbContext.Systems.findById(res._id).populate('creator', 'name')
+    return await dbContext.Systems.findById(body.id).populate('creator', 'name')
   }
 }
 export const systemsService = new SystemsService()

@@ -8,8 +8,8 @@ export class SystemsController extends BaseController {
     this.router
       .get('', this.getSystems)
       .get('/:id', this.getSystemById)
-      .post('', this.createSystem)
       .use(Auth0Provider.getAuthorizedUserInfo)
+      .post('', this.createSystem)
   }
 
   async getSystems(req, res, next) {
@@ -34,7 +34,7 @@ export class SystemsController extends BaseController {
 
   async createSystem(req, res, next) {
     try {
-      // req.body.creatorId = req.userInfo.id  Need to put this back in, when I have an auth key
+      req.body.creatorId = req.userInfo.id
       const system = await systemsService.createSystem(req.body)
       console.log(res)
       res.send(system)
