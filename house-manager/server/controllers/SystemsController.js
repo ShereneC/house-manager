@@ -10,6 +10,7 @@ export class SystemsController extends BaseController {
       .get('/:id', this.getSystemById)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createSystem)
+      .put('/:id', this.editSystem)
   }
 
   async getSystems(req, res, next) {
@@ -37,6 +38,16 @@ export class SystemsController extends BaseController {
       req.body.creatorId = req.userInfo.id
       const system = await systemsService.createSystem(req.body)
       console.log(res)
+      res.send(system)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async editSystem(req, res, next) {
+    try {
+      req.body.creatorId = req.userInfo.id
+      const system = await systemsService.editSystem(req.params.id, req.body)
       res.send(system)
     } catch (error) {
       next(error)
