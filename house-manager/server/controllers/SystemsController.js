@@ -55,7 +55,7 @@ export class SystemsController extends BaseController {
   async deleteSystem(req, res, next) {
     try {
       req.body.creatorId = req.userInfo.id
-      const systemToDelete = await systemsService.deleteSystem(req.body)
+      const systemToDelete = await systemsService.deleteSystem(req.body.id, req.body.creatorId)
       res.send(systemToDelete)
     } catch (error) {
       next(error)

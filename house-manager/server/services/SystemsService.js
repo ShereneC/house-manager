@@ -30,8 +30,16 @@ class SystemsService {
     }
   }
 
-  async deleteSystem(id) {
-
+  async deleteSystem(id, userId) {
+    const system = await dbContext.Systems.findById(id)
+    if (!system) {
+      throw new BadRequest('That system id does not exist')
+    } else {
+      if (userId === system.creatorId) {
+        const systemToDie = await dbContext.Systems.findByIdAndDelete({ _id: id })
+        return systemToDie
+      }
+    }
   }
 }
 export const systemsService = new SystemsService()
