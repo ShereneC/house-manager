@@ -19,5 +19,15 @@ class SystemsService {
     const res = await dbContext.Systems.create(body)
     return await dbContext.Systems.findById(body.id).populate('creator', 'name')
   }
+
+  async editSystem(id, body) {
+    const system = await dbContext.Systems.findById(id)
+    if (!system) {
+      const editedSystem = await dbContext.Systems.findByIdAndUpdate(id, body, { new: true, runValidators: true })
+      return editedSystem
+    } else {
+      throw new BadRequest('System not found with that id')
+    }
+  }
 }
 export const systemsService = new SystemsService()
