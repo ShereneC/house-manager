@@ -38,6 +38,8 @@ class SystemsService {
       if (userId === system.creatorId) {
         const systemToDie = await dbContext.Systems.findByIdAndDelete({ _id: id })
         return systemToDie
+      } else {
+        throw new BadRequest('This is not your system to delete')
       }
     }
   }
