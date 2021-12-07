@@ -31,11 +31,11 @@ class SystemsService {
   }
 
   async deleteSystem(id, userId) {
-    const system = await dbContext.Systems.findById(id)
+    const system = await dbContext.Systems.findById(id).populate('creator')
     if (!system) {
       throw new BadRequest('That system id does not exist')
     } else {
-      if (userId === system.creatorId) {
+      if (userId === system.creator.id) {
         const systemToDie = await dbContext.Systems.findByIdAndDelete({ _id: id })
         return systemToDie
       } else {
