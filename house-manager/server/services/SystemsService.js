@@ -3,7 +3,7 @@ import { BadRequest } from '../utils/Errors'
 
 class SystemsService {
   async getSystems(query = {}) {
-    const systems = await dbContext.Systems.find(query)
+    const systems = await dbContext.Systems.find(query).populate('creator')
     return systems
   }
 

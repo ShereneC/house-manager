@@ -4,6 +4,7 @@
     <p>{{ system.description }}</p>
     <p>{{ system.needService }}</p>
     <p>{{ system.lastServiced }}</p>
+    <p>{{ system.creator.name }}</p>
   </div>
 </template>
 
