@@ -5,6 +5,7 @@
     <p>{{ system.needService }}</p>
     <p>{{ system.lastServiced }}</p>
     <p>{{ system.creator.name }}</p>
+    <img :src="system.creator.picture" alt="profile image" />
   </div>
 </template>
 
