@@ -3,15 +3,26 @@
     class="
       home
       flex-grow-1
+      container
       d-flex
       flex-column
       align-items-center
       justify-content-center
     "
   >
-    <h1>Systems</h1>
-    <System v-for="s in systems" :key="s.id" :system="s" />
-    <h1>Appliances</h1>
+    <div class="row">
+      <div class="col-12">
+        <h1>Systems</h1>
+      </div>
+    </div>
+    <div class="row">
+      <System v-for="s in systems" :key="s.id" :system="s" />
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <h1>Appliances</h1>
+      </div>
+    </div>
   </div>
 </template>
 

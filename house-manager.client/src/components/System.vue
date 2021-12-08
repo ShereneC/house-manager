@@ -1,6 +1,8 @@
 <template>
-  {{ system.name }}
-  {{ system.description }}
+  <div class="col-3">
+    {{ system.name }}
+    {{ system.description }}
+  </div>
 </template>
 
 <script>
