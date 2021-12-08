@@ -10,7 +10,7 @@
     "
   >
     <h1>Systems</h1>
-    <h6>{{ systems }}</h6>
+    <System v-for="s in systems" :key="s.id" :system="s" />
     <h1>Appliances</h1>
   </div>
 </template>

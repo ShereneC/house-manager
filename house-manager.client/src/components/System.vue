@@ -1,15 +1,19 @@
 <template>
-  {{ system }}
+  {{ system.name }}
+  {{ system.description }}
 </template>
 
 <script>
-props: {
-  system: {
-    type: Object;
-    required: true
+export default {
+
+  props: {
+    system: {
+      type: Object,
+      required: true
+    }
   }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 </style>
