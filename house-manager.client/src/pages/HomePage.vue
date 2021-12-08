@@ -19,7 +19,7 @@
 import { computed, onMounted } from '@vue/runtime-core'
 import { AppState } from '../AppState'
 import Pop from '../utils/Notifier'
-// import { systemsService } from '../services/SystemsService'
+import { systemsService } from '../services/SystemsService'
 
 export default {
   name: 'Home',
