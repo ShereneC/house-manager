@@ -26,7 +26,7 @@ export default {
   setup() {
     onMounted(async () => {
       try {
-        await systemsService.getAllSystems
+        await systemsService.getAllSystems()
       } catch (error) {
         Pop.toast(error, 'error')
       }

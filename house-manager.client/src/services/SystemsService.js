@@ -2,10 +2,11 @@ import { AppState } from '../AppState'
 import { api } from './AxiosService'
 
 class SystemsService {
-  async getAllSystems(query = {}) {
+  async getAllSystems() {
+    console.log('hello from getall Systems')
     const res = await api.get('api/systems')
-    AppState.systems = res.data
     console.log(res)
+    AppState.systems = res.data
   }
 }
 
