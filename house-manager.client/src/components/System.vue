@@ -1,7 +1,9 @@
 <template>
   <div class="col-3">
-    {{ system.name }}
-    {{ system.description }}
+    <h3>{{ system.name }}</h3>
+    <p>{{ system.description }}</p>
+    <p>{{ system.needService }}</p>
+    <p>{{ system.lastServiced }}</p>
   </div>
 </template>
 
