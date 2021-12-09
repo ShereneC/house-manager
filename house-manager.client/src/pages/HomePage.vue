@@ -8,7 +8,7 @@
       align-items-center
       justify-content-center
     ">
-    <div class="row w-100 text-center">
+    <div class="row w-100 text-center mt-4">
       <div class="col-12">
         <h1>Systems</h1>
       </div>
@@ -16,7 +16,7 @@
     <div class="row w-100">
       <System v-for="s in systems" :key="s.id" :system="s" />
     </div>
-    <div class="row w-100 text-center">
+    <div class="row w-100 text-center mt-4">
       <div class="col-12">
         <h1>Appliances</h1>
       </div>
