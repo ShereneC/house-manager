@@ -1,10 +1,10 @@
 <template>
-  <div class="col-3 d-flex flex-column">
-    <h3 class="text-center">{{ system.name }}</h3>
+  <div class="col-3 d-flex flex-column rounded m-2 shadow selectable">
+    <h2 class="text-center">{{ system.name }}</h2>
     <img :src="system.mainImg" alt="main image" class="" />
-    <p>{{ system.description }}</p>
-    <p>{{ system.needService }}</p>
-    <p>{{ system.lastServiced }}</p>
+    <h4>{{ system.description }}</h4>
+    <h2>{{ system.needService }}</h2>
+    <h6>{{ system.lastServiced }}</h6>
     <div class="d-flex justify-content-center">
       <div class="m-2">
         <p class="mr-0">{{ system.creator.name }}</p>

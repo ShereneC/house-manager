@@ -2,7 +2,7 @@
   <div class="
       home
       flex-grow-1
-      container
+      container-fluid
       d-flex
       flex-column
       align-items-center
