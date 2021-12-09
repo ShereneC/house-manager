@@ -1,7 +1,7 @@
 <template>
   <div class="col-3 d-flex flex-column rounded m-2 shadow selectable bg-secondary">
     <h2 class="text-center">{{ system.name }}</h2>
-    <img :src="system.mainImg" alt="main image" class="" />
+    <img :src="system.mainImg" alt="main image" class="rounded" />
     <h4>{{ system.description }}</h4>
     <h2>{{ system.needService }}</h2>
     <h6>{{ system.lastServiced }}</h6>
