@@ -3,7 +3,8 @@
     <h2 class="text-center">{{ system.name }}</h2>
     <img :src="system.mainImg" alt="main image" class="rounded main-pic" />
     <h4>{{ system.description }}</h4>
-    <h2>{{ system.needService }}</h2>
+    <h4 class="">Needs Service!</h4>
+
     <h6>{{ system.lastServiced }}</h6>
     <div class="d-flex justify-content-center">
       <div class="m-2">
