@@ -5,8 +5,14 @@
     <p>{{ system.description }}</p>
     <p>{{ system.needService }}</p>
     <p>{{ system.lastServiced }}</p>
-    <p>{{ system.creator.name }}</p>
-    <img :src="system.creator.picture" alt="profile image" class="profile-pic" />
+    <div class="d-flex justify-content-center">
+      <div class="m-2">
+        <p class="mr-0">{{ system.creator.name }}</p>
+      </div>
+      <div class="div">
+        <img :src="system.creator.picture" alt="profile image" class="profile-pic ml-2" />
+      </div>
+    </div>
   </div>
 </template>
 
