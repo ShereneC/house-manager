@@ -1,6 +1,5 @@
 <template>
-  <div
-    class="
+  <div class="
       home
       flex-grow-1
       container
@@ -8,45 +7,47 @@
       flex-column
       align-items-center
       justify-content-center
-    "
-  >
-    <div class="row">
+    ">
+    <div class="row w-100 text-center">
       <div class="col-12">
         <h1>Systems</h1>
       </div>
     </div>
-    <div class="row">
+    <div class="row w-100">
       <System v-for="s in systems" :key="s.id" :system="s" />
     </div>
-    <div class="row">
+    <div class="row w-100 text-center">
       <div class="col-12">
         <h1>Appliances</h1>
+      </div>
+      <div class="row w-100">
+        <System v-for="s in systems" :key="s.id" :system="s" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { computed, onMounted } from '@vue/runtime-core'
-import { AppState } from '../AppState'
-import Pop from '../utils/Notifier'
-import { systemsService } from '../services/SystemsService'
+  import { computed, onMounted } from '@vue/runtime-core'
+  import { AppState } from '../AppState'
+  import Pop from '../utils/Notifier'
+  import { systemsService } from '../services/SystemsService'
 
-export default {
-  name: 'Home',
-  setup() {
-    onMounted(async () => {
-      try {
-        await systemsService.getAllSystems()
-      } catch (error) {
-        Pop.toast(error, 'error')
+  export default {
+    name: 'Home',
+    setup() {
+      onMounted(async () => {
+        try {
+          await systemsService.getAllSystems()
+        } catch (error) {
+          Pop.toast(error, 'error')
+        }
+      })
+      return {
+        systems: computed(() => AppState.systems)
       }
-    })
-    return {
-      systems: computed(() => AppState.systems)
     }
   }
-}
 </script>
 
 <style scoped lang="scss">
