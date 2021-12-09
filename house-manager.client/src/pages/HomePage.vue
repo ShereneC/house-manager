@@ -20,9 +20,9 @@
       <div class="col-12">
         <h1>Appliances</h1>
       </div>
-      <div class="row w-100">
-        <System v-for="s in systems" :key="s.id" :system="s" />
-      </div>
+    </div>
+    <div class="row w-100">
+      <System v-for="s in systems" :key="s.id" :system="s" />
     </div>
   </div>
 </template>

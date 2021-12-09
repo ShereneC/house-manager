@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 export const System = new Schema(
   {
     name: { type: String, required: true },
+    mainImg: { type: String },
     description: { type: String },
     needsService: { type: Boolean, default: false },
     lastServiced: { type: String, default: 'Never Serviced' },
