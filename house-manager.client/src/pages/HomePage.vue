@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="row w-100">
-      <System v-for="a in appliances" :key="a.id" :appliance="a" />
+      <Appliance v-for="a in appliances" :key="a.id" :appliance="a" />
     </div>
   </div>
 </template>
@@ -32,6 +32,7 @@
   import { AppState } from '../AppState'
   import Pop from '../utils/Notifier'
   import { systemsService } from '../services/SystemsService'
+  import { appliancesService } from '../services/AppliancesService'
 
   export default {
     name: 'Home',
@@ -39,12 +40,14 @@
       onMounted(async () => {
         try {
           await systemsService.getAllSystems()
+          await appliancesService.getAllAppliances()
         } catch (error) {
           Pop.toast(error, 'error')
         }
       })
       return {
-        systems: computed(() => AppState.systems)
+        systems: computed(() => AppState.systems),
+        appliances: computed(() => AppState.appliances)
       }
     }
   }
