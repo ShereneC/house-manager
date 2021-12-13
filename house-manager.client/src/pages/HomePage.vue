@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="row w-100">
-      <System v-for="s in systems" :key="s.id" :system="s" />
+      <System v-for="a in appliances" :key="a.id" :appliance="a" />
     </div>
   </div>
 </template>

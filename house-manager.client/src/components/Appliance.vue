@@ -2,7 +2,7 @@
   <div class="col-3 d-flex flex-column rounded m-2 shadow selectable bg-secondary">
     <h2 class="text-center">{{ appliance.name }}</h2>
     <img :src="appliance.mainImg" alt="main image" class="rounded main-pic" />
-    <h4>{{ appliance.description }}</h4>
+    <h4>{{ appliance.model }}</h4>
     <h4 class="service">Needs Service!</h4>
     <!-- Need a v-if here, but v-if, v-bind, v-for, etc. are not coming up as options when I type v- -->
 
