@@ -5,8 +5,11 @@ export const Appliance = new Schema(
   {
     name: { type: String, required: true },
     mainImg: { type: String },
-    description: { type: String },
+    model: { type: String },
+    serialNum: { type: Number },
     purchasedDate: { type: String },
+    purchasedFrom: { type: String },
+    ownersManualURL: { type: String },
     needsService: { type: Boolean, default: false },
     lastServiced: { type: String, default: 'Never Serviced' },
     creatorId: { type: Schema.Types.ObjectId, ref: 'Account', required: true }
