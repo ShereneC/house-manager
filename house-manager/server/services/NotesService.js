@@ -1,42 +1,42 @@
 import { dbContext } from '../db/DbContext'
 import { BadRequest } from '../utils/Errors'
 
-class notesService {
-  async getnotes(query = {}) {
-    const notes = await dbContext.notes.find(query).populate('creator')
+class NotesService {
+  async getNotes(query = {}) {
+    const notes = await dbContext.Notes.find(query).populate('creator')
     return notes
   }
 
-  async getnoteById(id) {
-    const note = await dbContext.notes.findById(id).populate('creator')
+  async getNoteById(id) {
+    const note = await dbContext.Notes.findById(id).populate('creator')
     if (!note) {
       throw new BadRequest('Invalid Id')
     }
     return note
   }
 
-  async createnote(body) {
-    const res = await dbContext.notes.create(body)
-    return await dbContext.notes.findById(body.id).populate('creator', 'name')
+  async createNote(body) {
+    const res = await dbContext.Notes.create(body)
+    return await dbContext.Notes.findById(body.id).populate('creator', 'name')
   }
 
-  async editnote(id, body) {
-    const note = await dbContext.notes.findById(id)
+  async editNote(id, body) {
+    const note = await dbContext.Notes.findById(id)
     if (note) {
-      const editednote = await dbContext.notes.findByIdAndUpdate(id, body, { new: true, runValidators: true })
-      return editednote
+      const editedNote = await dbContext.Notes.findByIdAndUpdate(id, body, { new: true, runValidators: true })
+      return editedNote
     } else {
-      throw new BadRequest('note not found with that id')
+      throw new BadRequest('Note not found with that id')
     }
   }
 
-  async deletenote(id, userId) {
-    const note = await dbContext.notes.findById(id).populate('creator')
+  async deleteNote(id, userId) {
+    const note = await dbContext.Notes.findById(id).populate('creator')
     if (!note) {
       throw new BadRequest('That note id does not exist')
     } else {
       if (userId === note.creator.id) {
-        const noteToDie = await dbContext.notes.findByIdAndDelete({ _id: id })
+        const noteToDie = await dbContext.Notes.findByIdAndDelete({ _id: id })
         return noteToDie
       } else {
         throw new BadRequest('This is not your note to delete')
@@ -44,4 +44,4 @@ class notesService {
     }
   }
 }
-export const notesService = new notesService()
+export const notesService = new NotesService()
