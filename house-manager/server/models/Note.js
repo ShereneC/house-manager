@@ -21,13 +21,13 @@ Note.virtual('creator', {
 })
 
 Note.virtual('system', {
-  localFields: 'systemId',
+  localField: 'systemId',
   ref: 'System',
   foreignField: '_id',
   justOne: true
 })
 Note.virtual('appliance', {
-  localFields: 'applianceId',
+  localField: 'applianceId',
   ref: 'Appliance',
   foreignField: '_id',
   justOne: true
