@@ -34,12 +34,12 @@
           try {
             await systemsService.setActiveSystem(props.system.id)
             router.push({ name: 'SystemDetails', params: { systemId: props.system.id } })
-          } catch (error)
-          Pop.toast(error, 'error')
+          } catch (error) {
+            Pop.toast(error, 'error')
+          }
         }
       }
     }
-  }
 </script>
 
 <style lang="scss" scoped>
