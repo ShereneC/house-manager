@@ -1,5 +1,6 @@
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import { appliancesService } from '../services/AppliancesService'
+import { notesService } from '../services/NotesService'
 import BaseController from '../utils/BaseController'
 
 export class AppliancesController extends BaseController {
@@ -8,6 +9,7 @@ export class AppliancesController extends BaseController {
     this.router
       .get('', this.getAppliances)
       .get('/:id', this.getApplianceById)
+      .get('/:id/notes', this.getNotesByApplianceId)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createAppliance)
       .put('/:id', this.editAppliance)
@@ -26,6 +28,15 @@ export class AppliancesController extends BaseController {
   async getApplianceById(req, res, next) {
     try {
       const appliance = await appliancesService.getApplianceById(req.params.id)
+      res.send(appliance)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async getNotesByApplianceId(req, res, next) {
+    try {
+      const appliance = await notesService.getNotesByApplianceId({ applianceId: req.params.id })
       res.send(appliance)
     } catch (error) {
       next(error)

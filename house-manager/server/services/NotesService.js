@@ -20,6 +20,11 @@ class NotesService {
     return notes
   }
 
+  async getNotesByApplianceId(query = {}) {
+    const notes = await dbContext.Notes.find(query).populate('creator', 'name')
+    return notes
+  }
+
   async createNote(body) {
     const res = await dbContext.Notes.create(body)
     return await dbContext.Notes.findById(body.id).populate('creator', 'name')
