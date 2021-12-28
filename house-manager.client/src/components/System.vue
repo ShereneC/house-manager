@@ -1,5 +1,5 @@
 <template>
-  <div class="col-3 d-flex flex-column rounded m-2 shadow selectable bg-secondary">
+  <div class="col-3 d-flex flex-column rounded m-2 shadow selectable bg-secondary" @click="setActiveSystem">
     <h2 class="text-center">{{ system.name }}</h2>
     <img :src="system.mainImg" alt="main image" class="rounded main-pic" />
     <h4>{{ system.description }}</h4>
@@ -19,12 +19,24 @@
 </template>
 
 <script>
+  import Pop from '../utils/Notifier'
   export default {
 
     props: {
       system: {
         type: Object,
         required: true
+      }
+    }
+    setup() {
+      return {
+        async setActiveSystem() {
+          try {
+            await systemsService.setActiveSystem(props.system.id)
+            router.push({ name: 'SystemDetails', params: { systemId: props.system.id } })
+          } catch (error)
+          Pop.toast(error, 'error')
+        }
       }
     }
   }
