@@ -27,7 +27,7 @@
         type: Object,
         required: true
       }
-    }
+    },
     setup() {
       return {
         async setActiveSystem() {
