@@ -11,6 +11,11 @@
       <div class="col-1"></div>
       <div class="col-10">
         {{activeSystem}}
+        <h3>Notes:</h3>
+
+      </div>
+      <div class="col-10 d-flex" v-for="n in notes" :key="n.id">
+        <Note :note="n" />
       </div>
       <div class="col-1"></div>
     </div>
@@ -36,10 +41,10 @@
         } catch (error) {
           Pop.toast(error, 'error')
         }
+        const notes = computed(() => AppState.notes[route.param.systemId] || [])
       })
       return {}
     },
-    components: {}
   }
 </script>
 
