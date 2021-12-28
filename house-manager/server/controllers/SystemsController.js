@@ -1,4 +1,5 @@
 import { Auth0Provider } from '@bcwdev/auth0provider'
+import { notesService } from '../services/NotesService'
 import { systemsService } from '../services/SystemsService'
 import BaseController from '../utils/BaseController'
 
@@ -8,6 +9,7 @@ export class SystemsController extends BaseController {
     this.router
       .get('', this.getSystems)
       .get('/:id', this.getSystemById)
+      .get('/:id/notes', this.getNotesBySystemId)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createSystem)
       .put('/:id', this.editSystem)
@@ -26,6 +28,15 @@ export class SystemsController extends BaseController {
   async getSystemById(req, res, next) {
     try {
       const system = await systemsService.getSystemById(req.params.id)
+      res.send(system)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async getNotesBySystemId(req, res, next) {
+    try {
+      const system = await notesService.getNotesBySystemId({ systemId: req.params.id })
       res.send(system)
     } catch (error) {
       next(error)
