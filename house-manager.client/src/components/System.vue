@@ -20,6 +20,8 @@
 
 <script>
   import Pop from '../utils/Notifier'
+  import { systemsService } from '../services/SystemsService'
+  import { router } from '../router'
   export default {
 
     props: {
@@ -28,7 +30,7 @@
         required: true
       }
     },
-    setup() {
+    setup(props) {
       return {
         async setActiveSystem() {
           try {
