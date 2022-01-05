@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h6>Note Created <span>{{note.createdAt}}</span></h6>
+    <h6>Note Created On: <span>{{noteCreatedAt}}</span></h6>
 
     {{note.body}}
     {{note.creator.name}}
@@ -10,6 +10,7 @@
 
 
 <script>
+  import { computed } from '@vue/runtime-core'
   export default {
     props: {
       note: {
@@ -17,8 +18,13 @@
         required: true
       }
     },
-    setup() {
-      return {}
+    setup(props) {
+      return {
+        noteCreatedAt: computed(() => {
+          const d = new Date(props.note.createdAt)
+          return new Intl.DateTimeFormat('en-US').format(d)
+        })
+      }
     },
     components: {}
   }
