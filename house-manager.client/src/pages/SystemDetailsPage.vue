@@ -11,7 +11,7 @@
       <div class="col-10 m-3 shadow bg-secondary rounded">
         <h1>{{ activeSystem.name }}</h1>
         <h3>{{ activeSystem.description }}</h3>
-        <h4 class="service">Needs Service!</h4>
+        <h4 class="service" v-if="activeSystem.needsService === true">Needs Service!</h4>
 
       </div>
       <div class="col-10 d-flex" v-for="n in notes" :key="n.id">
@@ -51,5 +51,7 @@
 
 
 <style lang="scss" scoped>
-
+  .service {
+    color: red;
+  }
 </style>
