@@ -9,11 +9,17 @@
     <div class="row w-100">
       <div class="col-1"></div>
       <div class="col-10 m-3 shadow bg-secondary rounded">
-        <h1>{{ activeSystem.name }}</h1>
+        <h1 class="text-center">{{ activeSystem.name }}</h1>
+        <div class="text-center"><img :src="activeSystem.mainImg" alt="main image" class="rounded main-pic" />
+        </div>
         <h3>{{ activeSystem.description }}</h3>
         <h4 class="service" v-if="activeSystem.needsService === true">Needs Service!</h4>
-
+        <h6>{{ activeSystem.lastServiced }}</h6>
+        <div class="div p-1 pb-2">
+          <img :src="activeSystem.creator.picture" alt="profile image" class="profile-pic ml-2" />
+        </div>
       </div>
+      <h3>Notes:</h3>
       <div class="col-10 d-flex" v-for="n in notes" :key="n.id">
         <Note :note="n" />
       </div>
@@ -53,5 +59,17 @@
 <style lang="scss" scoped>
   .service {
     color: red;
+  }
+
+  .main-pic {
+    width: 60%;
+    height: 16rem;
+    object-fit: cover;
+  }
+
+  .profile-pic {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%
   }
 </style>
