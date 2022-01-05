@@ -1,6 +1,9 @@
 <template>
   <div>
+    <h6>Note Created <span>{{note.createdAt}}</span></h6>
+
     {{note.body}}
+    {{note.creator.name}}
 
   </div>
 </template>
