@@ -7,4 +7,5 @@ export const AppState = reactive({
   systems: [],
   activeSystem: {},
   appliances: [],
+  notes: []
 })
