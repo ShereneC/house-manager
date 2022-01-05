@@ -15,8 +15,14 @@
         <h3>{{ activeSystem.description }}</h3>
         <h4 class="service" v-if="activeSystem.needsService === true">Needs Service!</h4>
         <h6>{{ activeSystem.lastServiced }}</h6>
-        <div class="div p-1 pb-2">
-          <img :src="activeSystem.creator.picture" alt="profile image" class="profile-pic ml-2" />
+        <div class="d-flex justify-content-end">
+          <div class="m-2">
+            <p class="m-0">Created by:</p>
+            <p class="mr-0">{{ activeSystem.creator.name }}</p>
+          </div>
+          <div class="div">
+            <img :src="activeSystem.creator.picture" alt="profile image" class="profile-pic ml-2" />
+          </div>
         </div>
       </div>
       <h3>Notes:</h3>
