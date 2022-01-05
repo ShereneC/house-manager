@@ -29,7 +29,7 @@
     <div class="row w-100">
       <div class="col d-flex flex-column">
         <h3>Notes:</h3>
-        <div class="row" v-for="n in notes" :key="n.id">
+        <div class="row border bg-grey rounded p-1" v-for="n in notes" :key="n.id">
           <Note :note="n" />
         </div>
       </div>

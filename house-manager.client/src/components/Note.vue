@@ -1,11 +1,13 @@
 <template>
-  <div class="col d-flex flex-column">
+  <div class="col-3 d-flex flex-column">
     <h6>Note Created On: <span>{{noteCreatedAt}}</span></h6>
+  </div>
+  <div class="col-6">
     <p>{{note.body}}</p>
-    <div class="d-flex flex-row align-items-end justify-content-end">
-      <h6>{{note.creator.name}}</h6>
-      <img :src="note.creator.picture" alt="profile image" class="profile-pic ml-2" />
-    </div>
+  </div>
+  <div class="col-3 d-flex">
+    <h6>{{note.creator.name}}</h6>
+    <img :src="note.creator.picture" alt="profile image" class="profile-pic ml-2" />
   </div>
 
 </template>
