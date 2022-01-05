@@ -25,11 +25,14 @@
           </div>
         </div>
       </div>
-      <h3>Notes:</h3>
-      <div class="col-10 d-flex" v-for="n in notes" :key="n.id">
-        <Note :note="n" />
+    </div>
+    <div class="row w-100">
+      <div class="col d-flex flex-column">
+        <h3>Notes:</h3>
+        <div class="row" v-for="n in notes" :key="n.id">
+          <Note :note="n" />
+        </div>
       </div>
-      <div class="col-1"></div>
     </div>
   </div>
 </template>

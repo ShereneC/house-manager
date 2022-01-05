@@ -1,11 +1,13 @@
 <template>
-  <div>
+  <div class="col d-flex flex-column">
     <h6>Note Created On: <span>{{noteCreatedAt}}</span></h6>
-
-    {{note.body}}
-    {{note.creator.name}}
-
+    <p>{{note.body}}</p>
+    <div class="d-flex flex-row align-items-end justify-content-end">
+      <h6>{{note.creator.name}}</h6>
+      <img :src="note.creator.picture" alt="profile image" class="profile-pic ml-2" />
+    </div>
   </div>
+
 </template>
 
 
@@ -32,5 +34,9 @@
 
 
 <style lang="scss" scoped>
-
+  .profile-pic {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%
+  }
 </style>
