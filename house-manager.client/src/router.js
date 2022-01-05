@@ -27,6 +27,12 @@ const routes = [
     name: 'SystemDetails',
     component: loadPage('SystemDetailsPage'),
     beforeEnter: authGuard
+  },
+  {
+    path: '/appliances/:applianceId',
+    name: 'ApplianceDetails',
+    component: loadPage('ApplianceDetailsPage'),
+    beforeEnter: authGuard
   }
 ]
 

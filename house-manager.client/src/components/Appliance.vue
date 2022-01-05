@@ -1,5 +1,5 @@
 <template>
-  <div class="col-3 d-flex flex-column rounded m-2 shadow selectable bg-secondary">
+  <div class="col-3 d-flex flex-column rounded m-2 shadow selectable bg-secondary" @click="setActiveAppliance">
     <h2 class="text-center">{{ appliance.name }}</h2>
     <img :src="appliance.mainImg" alt="main image" class="rounded main-pic" />
     <h4>{{ appliance.model }}</h4>
@@ -19,12 +19,27 @@
 </template>
 
 <script>
+  import Pop from '../utils/Notifier'
+  import { appliancesService } from '../services/AppliancesService'
+  import { router } from '../router'
   export default {
 
     props: {
       appliance: {
         type: Object,
         required: true
+      }
+    },
+    setup(props) {
+      return {
+        async setActiveAppliance() {
+          try {
+            await appliancesService.setActiveAppliance(props.appliance.id)
+            router.push({ name: 'AppllianceDetails', params: { applianceId: props.appliance.id } })
+          } catch (error) {
+            Pop.toast(error, 'error')
+          }
+        }
       }
     }
   }
