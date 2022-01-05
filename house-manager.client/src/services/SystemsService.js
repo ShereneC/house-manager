@@ -7,6 +7,11 @@ class SystemsService {
     AppState.systems = res.data
   }
 
+  async getSystemById(id) {
+    const res = await api.get('api/systems/' + id)
+    AppState.activeSystem = res.data
+  }
+
   async setActiveSystem(id) {
     const res = await api.get('api/systems/' + id)
     AppState.activeSystem = res.data

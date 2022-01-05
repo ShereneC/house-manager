@@ -5,12 +5,11 @@
         d-flex
         flex-column
         align-items-center
-        justify-content-center
-      " v-if="activeSystem._id">
+        justify-content-center" v-if="activeSystem._id">
     <div class="row">
       <div class="col-1"></div>
       <div class="col-10">
-        {{activeSystem}}
+        {{ activeSystem }}
         <h3>Notes:</h3>
 
       </div>
@@ -31,7 +30,6 @@
   import { useRoute } from 'vue-router'
 
   export default {
-
     setup() {
       const route = useRoute()
       const activeSystem = computed(() => AppState.activeSystem)
@@ -43,8 +41,10 @@
         }
         const notes = computed(() => AppState.notes[route.param.systemId] || [])
       })
-      return {}
-    },
+      return {
+        activeSystem
+      }
+    }
   }
 </script>
 
