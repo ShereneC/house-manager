@@ -1,6 +1,6 @@
 <template>
-  <div class="component">
-
+  <div>
+    {{note.body}}
 
   </div>
 </template>
@@ -8,7 +8,12 @@
 
 <script>
   export default {
-    name: 'component',
+    props: {
+      note: {
+        type: Object,
+        required: true
+      }
+    },
     setup() {
       return {}
     },

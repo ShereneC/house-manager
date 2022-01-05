@@ -52,7 +52,7 @@
         } catch (error) {
           Pop.toast(error, 'error')
         }
-        const notes = computed(() => AppState.notes[route.param.systemId] || [])
+        //const notes = computed(() => AppState.notes[route.param.systemId] || [])
       })
       return {
         activeSystem
