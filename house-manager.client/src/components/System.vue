@@ -3,7 +3,7 @@
     <h2 class="text-center">{{ system.name }}</h2>
     <img :src="system.mainImg" alt="main image" class="rounded main-pic" />
     <h4>{{ system.description }}</h4>
-    <h4 class="service">Needs Service!</h4>
+    <h4 class="service" v-if="system.needsService === true">Needs Service!</h4>
     <!-- Need a v-if here, but v-if, v-bind, v-for, etc. are not coming up as options when I type v- -->
 
     <h6>{{ system.lastServiced }}</h6>
