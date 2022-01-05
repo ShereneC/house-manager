@@ -6,11 +6,12 @@
         flex-column
         align-items-center
         justify-content-center" v-if="activeSystem._id">
-    <div class="row">
+    <div class="row w-100">
       <div class="col-1"></div>
-      <div class="col-10">
-        {{ activeSystem }}
-        <h3>Notes:</h3>
+      <div class="col-10 m-3 shadow bg-secondary rounded">
+        <h1>{{ activeSystem.name }}</h1>
+        <h3>{{ activeSystem.description }}</h3>
+        <h4 class="service">Needs Service!</h4>
 
       </div>
       <div class="col-10 d-flex" v-for="n in notes" :key="n.id">
