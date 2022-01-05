@@ -46,16 +46,18 @@
     setup() {
       const route = useRoute()
       const activeSystem = computed(() => AppState.activeSystem)
+      const notes = computed(() => AppState.notes[route.params.systemId] || [])
       onMounted(async () => {
         try {
           await systemsService.getSystemById(route.params.systemId)
+          await systemsService.getNotesBySystemId(route.params.systemId)
         } catch (error) {
           Pop.toast(error, 'error')
         }
-        //const notes = computed(() => AppState.notes[route.param.systemId] || [])
       })
       return {
-        activeSystem
+        activeSystem,
+        notes
       }
     }
   }

@@ -16,6 +16,11 @@ class SystemsService {
     const res = await api.get('api/systems/' + id)
     AppState.activeSystem = res.data
   }
+
+  async getNotesBySystemId(id) {
+    const res = await api.get('api/systems/' + id + '/notes')
+    AppState.notes[id] = res.data
+  }
 }
 
 export const systemsService = new SystemsService()
