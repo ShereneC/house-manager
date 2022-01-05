@@ -7,6 +7,10 @@ class AppliancesService {
     AppState.appliances = res.data
   }
 
+  async getApplianceById(id) {
+    const res = await api.get('api/appliances/' + id)
+    AppState.activeAppliance = res.data
+  }
   async setActiveAppliance(id) {
     const res = await api.get('api/appliances/' + id)
     AppState.activeAppliance = res.data

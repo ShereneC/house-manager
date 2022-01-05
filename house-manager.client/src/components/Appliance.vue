@@ -35,7 +35,7 @@
         async setActiveAppliance() {
           try {
             await appliancesService.setActiveAppliance(props.appliance.id)
-            router.push({ name: 'AppllianceDetails', params: { applianceId: props.appliance.id } })
+            router.push({ name: 'ApplianceDetails', params: { applianceId: props.appliance.id } })
           } catch (error) {
             Pop.toast(error, 'error')
           }
