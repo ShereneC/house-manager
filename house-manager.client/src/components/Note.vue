@@ -1,15 +1,12 @@
 <template>
-  <div class="col-3 d-flex flex-column">
-    <h6>Note Created On: <span>{{noteCreatedAt}}</span></h6>
+  <div class="col-9">
+    <p class="mb-0">{{note.body}}</p>
   </div>
-  <div class="col-6">
-    <p>{{note.body}}</p>
-  </div>
-  <div class="col-3 d-flex">
-    <h6>{{note.creator.name}}</h6>
+  <div class="col-3 d-flex justify-content-between">
+    <h6 class="mb-0">{{note.creator.name}}</h6>
     <!-- Why is creator.picture not working but creator.name is???? -->
-    <h6>{{note.creator.picture}}</h6>
-    <img :src="note.creator.picture" alt="profile image" class="profile-pic ml-2" />
+    <!-- <img :src="note.creator.picture" alt="profile image" class="profile-pic ml-2" /> -->
+    <h6 class="mb-0">{{noteCreatedAt}}</h6>
   </div>
 
 </template>
