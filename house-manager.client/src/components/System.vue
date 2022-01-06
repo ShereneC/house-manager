@@ -1,5 +1,5 @@
 <template>
-  <div class="col-3 d-flex flex-column rounded m-2 shadow selectable bg-secondary" @click="setActiveSystem">
+  <div class="col-md-3 d-flex flex-column rounded mx-0 my-2 shadow selectable bg-secondary" @click="setActiveSystem">
     <h2 class="text-center">{{ system.name }}</h2>
     <img :src="system.mainImg" alt="main image" class="rounded main-pic" />
     <h4>{{ system.description }}</h4>
