@@ -8,7 +8,7 @@
         justify-content-center" v-if="activeAppliance._id">
     <div class="row w-100">
       <div class="col-1"></div>
-      <div class="col-10 m-3 shadow bg-secondary rounded">
+      <div class="col-md-10 mx-0 my-2 shadow bg-secondary rounded">
         <h1 class="text-center">{{ activeAppliance.name }}</h1>
         <div class="text-center"><img :src="activeAppliance.mainImg" alt="main image" class="rounded main-pic" />
         </div>
@@ -25,6 +25,7 @@
           </div>
         </div>
       </div>
+      <div class="col-1"></div>
     </div>
     <div class="row w-100">
       <div class="col d-flex flex-column">
