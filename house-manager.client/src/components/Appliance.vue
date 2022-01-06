@@ -1,4 +1,5 @@
 <template>
+  <!-- Need to use a media query to remove mx-2 on mobile view so that it is centered -->
   <div class="col-md-3 d-flex flex-column rounded mx-2 my-2 shadow selectable bg-secondary" @click="setActiveAppliance">
     <h2 class="text-center">{{ appliance.name }}</h2>
     <img :src="appliance.mainImg" alt="main image" class="rounded main-pic" />

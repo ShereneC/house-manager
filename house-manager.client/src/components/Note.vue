@@ -8,7 +8,7 @@
     <!-- <img :src="note.creator.picture" alt="profile image" class="profile-pic ml-2" /> -->
     <h6 class="mb-0">{{noteCreatedAt}}</h6>
   </div>
-  <div class="col-md-1 p-0 text-center">X</div>
+  <div class="col-md-1 p-0 text-center"><span class="fa fa-trash text-red"></span></div>
 
 </template>
 
